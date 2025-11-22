@@ -69,7 +69,7 @@ export const SKILL_METRICS: SkillMetric[] = [
   { subject: 'ROS/ROS2', A: 90, fullMark: 100 },
   { subject: 'C++', A: 85, fullMark: 100 },
   { subject: 'Python', A: 95, fullMark: 100 },
-  { subject: 'PX4', A: 88, fullMark: 100 },
+  { subject: 'Flight control Stacks', A: 88, fullMark: 100 },
   { subject: 'Linux', A: 92, fullMark: 100 },
   { subject: 'Electronics', A: 80, fullMark: 100 },
 ];
@@ -82,9 +82,8 @@ export const SOFT_SKILLS: SoftSkill[] = [
 ];
 
 export const BIO_TEXT = `
-Passionate about Innovation, I am a student of Electrical Engineering and a Researcher at SENAI CIMATEC with over 2 years of experience in programming.
+I'm Rodrigo, and I am a Robotics Engineer graduate in Electrical Engineering.
 
-My expertise lies in Python and C++ for robotics and aerial systems. I am an enthusiast of Multicopter UAVs, dedicating my work to bridging the gap between theoretical control systems and real-world autonomous application. 
-
-Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorithms on real hardware, I am driven by the challenge of making machines move intelligently.
+I'm passionate about creating intelligent systems that integrate software and hardware to solve real-world problems. My journey started on a robotics laboratory during my undergraduate years, where I learned the fundamentals of robotics and control systems.
+This passion drove me into Robotics, where I am striving deep into the field of Autonomous Systems, focusing on Machine Learning, UAV framework (PX4), ROS 2 and Embedded Systems development.
 `;

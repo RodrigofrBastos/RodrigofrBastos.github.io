@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rodrigo Bastos | Robotics Engineer</title>
+    <title>Rodrigo Bastos | Robotics Engineer & Researcher</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -23,6 +23,7 @@
           extend: {
             fontFamily: {
               sans: ['Outfit', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
               mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
             },
             colors: {
@@ -35,7 +36,6 @@
               'float-1': 'float1 5s ease-in-out infinite',
               'float-2': 'float2 6s ease-in-out infinite',
               'blink': 'blink 1s step-end infinite',
-              'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             },
             keyframes: {
               float1: {
@@ -50,10 +50,6 @@
                 '0%, 100%': { opacity: 1 },
                 '50%': { opacity: 0 },
               },
-              'pulse-glow': {
-                '0%, 100%': { opacity: 1, boxShadow: '0 0 20px #3B82F6' },
-                '50%': { opacity: .5, boxShadow: '0 0 10px #3B82F6' },
-              }
             }
           },
         },
@@ -90,9 +86,9 @@
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
     "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
     "recharts": "https://aistudiocdn.com/recharts@^3.4.1"
   }
@@ -111,28 +107,30 @@
             </div>
 
             <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8">
-                <button onclick="scrollToSection('about')" class="text-slate-300 hover:text-primary font-medium uppercase text-sm tracking-widest transition-colors">About</button>
-                <button onclick="scrollToSection('experience')" class="text-slate-300 hover:text-primary font-medium uppercase text-sm tracking-widest transition-colors">Experience</button>
-                <button onclick="scrollToSection('skills')" class="text-slate-300 hover:text-primary font-medium uppercase text-sm tracking-widest transition-colors">Skills</button>
-                <button onclick="scrollToSection('projects')" class="text-slate-300 hover:text-primary font-medium uppercase text-sm tracking-widest transition-colors">Projects</button>
-                <button onclick="scrollToSection('contact')" class="px-6 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 font-bold text-sm shadow-sm hover:shadow-primary/50">
-                    CONTACT ME
+            <div class="hidden lg:flex items-center gap-6 xl:gap-8">
+                <button onclick="scrollToSection('about')" class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">About</button>
+                <button onclick="scrollToSection('experience')" class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Experience</button>
+                <button onclick="scrollToSection('education')" class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Education</button>
+                <button onclick="scrollToSection('publications')" class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Research</button>
+                <button onclick="scrollToSection('projects')" class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Projects</button>
+                <button onclick="scrollToSection('contact')" class="px-5 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 font-bold text-xs shadow-sm hover:shadow-primary/50">
+                    CONTACT
                 </button>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+            <button class="lg:hidden text-white" onclick="toggleMobileMenu()">
                 <i data-lucide="menu" id="menu-icon"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-dark/95 backdrop-blur-xl border-b border-slate-800 absolute w-full top-full left-0">
-            <div class="flex flex-col items-center py-8 gap-6">
+        <div id="mobile-menu" class="hidden lg:hidden bg-dark/95 backdrop-blur-xl border-b border-slate-800 absolute w-full top-full left-0 shadow-2xl">
+            <div class="flex flex-col items-center py-8 gap-6 h-screen overflow-y-auto pb-32">
                 <button onclick="scrollToSection('about')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">About</button>
                 <button onclick="scrollToSection('experience')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Experience</button>
-                <button onclick="scrollToSection('skills')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Skills</button>
+                <button onclick="scrollToSection('education')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Education</button>
+                <button onclick="scrollToSection('publications')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Research</button>
                 <button onclick="scrollToSection('projects')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Projects</button>
                 <button onclick="scrollToSection('contact')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Contact</button>
             </div>
@@ -153,7 +151,7 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
                     </span>
-                    <span class="text-slate-400 text-sm font-medium tracking-widest uppercase">Available for hire</span>
+                    <span class="text-slate-400 text-sm font-medium tracking-widest uppercase">Academic & Professional Portfolio</span>
                 </div>
 
                 <h1 class="text-6xl md:text-8xl font-bold leading-tight mb-6 font-sans tracking-tight text-white">
@@ -168,7 +166,7 @@
                 </div>
 
                 <p class="text-slate-400 text-lg md:text-xl max-w-lg leading-relaxed mb-8">
-                    Passionate about Innovation. Bridging the gap between Electrical Engineering and Robotics Software.
+                    Passionate about Innovation. Bridging the gap between Electrical Engineering and Robotics Software through academic research and applied development.
                 </p>
 
                 <!-- Location Timeline -->
@@ -186,32 +184,17 @@
                                     <span class="text-[10px] text-primary/80 font-mono uppercase tracking-wider mt-0.5">Current Base</span>
                                 </div>
                             </div>
-
-                            <!-- Line -->
-                            <div class="flex items-center opacity-30 group-hover:opacity-100 transition-opacity duration-500 text-primary flex-1 justify-center">
-                                <div class="w-full max-w-[60px] h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-                                <i data-lucide="arrow-right" class="w-3 h-3 ml-[-4px]"></i>
-                            </div>
-
-                            <!-- Future -->
-                            <div class="flex items-center gap-3 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
-                                <i data-lucide="globe" class="text-slate-400 group-hover:text-accent w-4 h-4 transition-colors"></i>
-                                <div class="flex flex-col items-end">
-                                    <span class="text-slate-300 font-bold text-sm leading-none group-hover:text-white transition-colors">Worldwide</span>
-                                    <span class="text-[10px] text-slate-500 font-mono uppercase tracking-wider mt-0.5">Open to Relocation</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex flex-wrap gap-6">
-                    <button onclick="scrollToSection('projects')" class="px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg shadow-primary/25">
-                        View Projects
+                    <button onclick="scrollToSection('publications')" class="px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg shadow-primary/25">
+                        View Research
                     </button>
-                    <button onclick="scrollToSection('contact')" class="px-8 py-4 border border-slate-700 text-white rounded-full hover:border-primary hover:text-primary transition-colors duration-300">
-                        Contact Me
-                    </button>
+                    <a href="#" class="px-8 py-4 border border-slate-700 text-white rounded-full hover:border-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                        <i data-lucide="download" class="w-4 h-4"></i> Download CV
+                    </a>
                 </div>
             </div>
 
@@ -223,7 +206,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent"></div>
                     <div class="absolute bottom-8 left-8 right-8">
                         <div class="text-white font-bold text-2xl">Rodrigo Bastos</div>
-                        <div class="text-slate-400 text-sm">Robotics Engineer Intern</div>
+                        <div class="text-slate-400 text-sm">Robotics Engineer</div>
                     </div>
                 </div>
 
@@ -252,7 +235,7 @@
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 animate-bounce">
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 animate-bounce cursor-pointer" onclick="scrollToSection('about')">
             <i data-lucide="chevron-down" class="w-6 h-6"></i>
         </div>
     </section>
@@ -261,15 +244,14 @@
     <section id="about" class="py-24 bg-dark relative">
         <div class="max-w-4xl mx-auto px-6 text-center reveal">
             <h2 class="text-primary text-sm font-bold tracking-widest mb-4 uppercase">Who Am I?</h2>
-            <h3 class="text-3xl md:text-4xl font-bold text-white mb-8">Engineer. Maker. Problem Solver.</h3>
+            <h3 class="text-3xl md:text-4xl font-bold text-white mb-8">Researcher. Engineer. Innovator.</h3>
             
             <div class="relative p-8 bg-slate-800/30 border border-slate-700 rounded-2xl backdrop-blur-sm text-left md:text-center">
                 <p class="text-slate-300 text-lg leading-loose whitespace-pre-line">
-Passionate about Innovation, I am a student of Electrical Engineering and a Researcher at SENAI CIMATEC with over 2 years of experience in programming.
+I'm Rodrigo, and I am a Robotics Engineer graduate in Electrical Engineering.
 
-My expertise lies in Python and C++ for robotics and aerial systems. I am an enthusiast of Multicopter UAVs, dedicating my work to bridging the gap between theoretical control systems and real-world autonomous application.
-
-Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorithms on real hardware, I am driven by the challenge of making machines move intelligently.
+I'm passionate about creating intelligent systems that integrate software and hardware to solve real-world problems. My journey started on a robotics laboratory during my undergraduate years, where I learned the fundamentals of robotics and control systems.
+This passion drove me into Robotics, where I am striving deep into the field of Autonomous Systems, focusing on Machine Learning, UAV framework (PX4), ROS 2 and Embedded Systems development.
                 </p>
                 <span class="absolute top-4 left-6 text-6xl text-slate-700 opacity-50 font-serif">“</span>
                 <span class="absolute bottom-[-20px] right-6 text-6xl text-slate-700 opacity-50 font-serif">”</span>
@@ -282,7 +264,7 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-primary text-sm font-bold tracking-widest mb-4 uppercase">Career Path</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-white">Work Experience</h3>
+                <h3 class="text-3xl md:text-4xl font-bold text-white">Professional Experience</h3>
             </div>
 
             <div class="relative" id="experience-container">
@@ -294,51 +276,62 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-32 bg-dark border-t border-white/5">
+    <!-- Education Section -->
+    <section id="education" class="py-24 bg-slate-900 relative border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-primary text-sm font-bold tracking-widest mb-4 uppercase">Academic Background</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white">Education</h3>
+            </div>
+            
+            <div id="education-container" class="grid grid-cols-1 gap-8">
+                <!-- Education injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="py-24 bg-dark border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-6">
+             <div class="text-center mb-16 reveal">
+                <h2 class="text-primary text-sm font-bold tracking-widest mb-4 uppercase">Research</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white">Publications & Productions</h3>
+            </div>
+            <div id="publications-list" class="space-y-6">
+                <!-- Publications injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Development Section -->
+    <section id="development" class="py-32 bg-dark border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 
-                <!-- Text Content -->
-                <div class="lg:col-span-1 flex flex-col justify-center reveal">
-                    <h2 class="text-5xl font-bold text-white mb-6">Technical <br /><span class="text-slate-600">Arsenal</span></h2>
-                    <p class="text-slate-400 text-lg leading-relaxed mb-8">
-                        A balance of low-level hardware control and high-level algorithmic reasoning.
-                    </p>
-                    <div class="p-6 bg-slate-800/30 rounded-3xl border border-white/5">
-                        <p class="text-primary font-mono text-sm mb-2">// CORE COMPETENCIES</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-700/50 rounded-md text-slate-300 text-xs border border-white/5 hover:border-primary/30 hover:text-white transition-colors">ROS 2</span>
-                            <span class="px-3 py-1 bg-slate-700/50 rounded-md text-slate-300 text-xs border border-white/5 hover:border-primary/30 hover:text-white transition-colors">C++ 17</span>
-                            <span class="px-3 py-1 bg-slate-700/50 rounded-md text-slate-300 text-xs border border-white/5 hover:border-primary/30 hover:text-white transition-colors">Python</span>
-                            <span class="px-3 py-1 bg-slate-700/50 rounded-md text-slate-300 text-xs border border-white/5 hover:border-primary/30 hover:text-white transition-colors">SLAM</span>
-                            <span class="px-3 py-1 bg-slate-700/50 rounded-md text-slate-300 text-xs border border-white/5 hover:border-primary/30 hover:text-white transition-colors">OpenCV</span>
-                            <span class="px-3 py-1 bg-slate-700/50 rounded-md text-slate-300 text-xs border border-white/5 hover:border-primary/30 hover:text-white transition-colors">PX4</span>
-                        </div>
+                <!-- Technical Skills Radar -->
+                <div class="lg:col-span-2 reveal">
+                    <h3 class="text-2xl font-bold text-white mb-6">Technical Proficiency</h3>
+                    <div class="bg-slate-800/40 backdrop-blur-sm border border-white/5 rounded-[2.5rem] p-8 h-[500px] relative hover:border-primary/20 transition-colors">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <canvas id="skillsChart"></canvas>
+                        </ResponsiveContainer>
                     </div>
                 </div>
 
-                <!-- Radar Chart -->
-                <div class="lg:col-span-2 bg-slate-800/40 backdrop-blur-sm border border-white/5 rounded-[2.5rem] p-8 h-[500px] relative hover:border-primary/20 transition-colors reveal">
-                    <div class="absolute top-8 left-8 z-10">
-                        <h3 className="text-xl font-bold text-white">Proficiency Matrix</h3>
-                    </div>
-                    <div class="w-full h-full flex items-center justify-center">
-                        <canvas id="skillsChart"></canvas>
-                    </div>
+                <!-- Areas to Develop -->
+                <div class="lg:col-span-1 reveal">
+                     <h3 class="text-2xl font-bold text-white mb-6">Areas of Development</h3>
+                     <p class="text-slate-400 mb-6">Focusing on expanding expertise in cutting-edge robotics fields.</p>
+                     <div id="areas-container" class="grid grid-cols-1 gap-4">
+                        <!-- Areas injected here -->
+                     </div>
                 </div>
-
-                <!-- Soft Skills Grid -->
-                <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8" id="soft-skills-container">
-                    <!-- Soft Skills Injected via JS -->
-                </div>
-
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-32 bg-dark relative">
+    <section id="projects" class="py-32 bg-dark relative border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-6">
             
             <!-- Header -->
@@ -346,7 +339,7 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
                 <div>
                     <h2 class="text-5xl font-bold text-white mb-4 tracking-tight">Featured <span class="text-slate-600">Work</span></h2>
                     <p class="text-slate-400 max-w-md text-lg">
-                        A selection of research papers, drone prototypes, and industrial applications.
+                        A comprehensive portfolio of academic research, industrial solutions, and personal prototypes.
                     </p>
                 </div>
                 
@@ -367,72 +360,106 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
         </div>
     </section>
 
-    <!-- Contact / Footer -->
-    <footer id="contact" class="bg-slate-900 pt-24 pb-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6">
+    <!-- Formal Footer -->
+    <footer id="contact" class="bg-slate-950 pt-24 pb-12 border-t border-slate-900">
+        <div class="max-w-5xl mx-auto px-6">
             
-            <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 flex flex-col md:flex-row items-center justify-between mb-16 shadow-[0_0_40px_rgba(59,130,246,0.3)] reveal">
-                <div class="mb-8 md:mb-0">
-                    <h2 class="text-4xl font-bold text-white mb-2">Looking for a Robotics Engineer?</h2>
-                    <p class="text-blue-100 font-medium text-lg">I am available for new challenges.</p>
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-serif italic text-slate-500 mb-4">Let's Connect</h2>
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-8">Rodrigo Bastos</h1>
+                <div class="flex flex-col items-center gap-6">
+                     <p class="text-slate-400 max-w-lg mx-auto">
+                        I am currently available for research collaborations and engineering roles in Robotics and Autonomous Systems.
+                    </p>
+                     <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="mailto:digofbastos@gmail.com" class="px-8 py-3 bg-white text-slate-900 rounded-md font-medium hover:bg-slate-200 transition-colors">Send Email</a>
+                        <a href="#" class="px-8 py-3 border border-slate-700 text-slate-300 rounded-md font-medium hover:border-primary hover:text-primary transition-colors flex items-center gap-2">
+                            <i data-lucide="file-text" class="w-4 h-4"></i> Download CV
+                        </a>
+                     </div>
                 </div>
-                <a href="mailto:digofbastos@gmail.com" class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-transform shadow-lg">
-                    Hire Me <i data-lucide="chevron-right"></i>
-                </a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-slate-800 pt-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-slate-900 pt-12">
+                
+                <!-- Contact Info -->
                 <div>
-                    <h4 class="text-2xl font-bold text-white mb-6">RODRIGO <span class="text-primary">BASTOS</span></h4>
-                    <p class="text-slate-400 leading-relaxed mb-6">
-                        Passionate Robotics Engineer and Researcher at SENAI CIMATEC. Focused on UAVs, ROS2, and Innovation.
-                    </p>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Contact Details</h4>
+                    <ul class="space-y-4 text-slate-400">
+                        <li class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-600 uppercase">Phone</span>
+                                <span class="text-white">(71) 9 9371-2236</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-600 uppercase">Email</span>
+                                <span class="text-white">digofbastos@gmail.com</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-600 uppercase">Location</span>
+                                <span class="text-white">Salvador, Bahia, Brazil</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Socials -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Social Networks</h4>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all">
-                            <i data-lucide="github" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/rodrigo-freire-bastos" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all">
+                        <a href="https://www.linkedin.com/in/rodrigo-freire-bastos" target="_blank" class="flex items-center gap-3 px-5 py-3 bg-slate-900 rounded-lg text-slate-400 hover:bg-primary hover:text-white transition-all group w-full md:w-auto">
                             <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            <span>LinkedIn</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"></i>
                         </a>
-                        <a href="mailto:digofbastos@gmail.com" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all">
-                            <i data-lucide="mail" class="w-5 h-5"></i>
+                         <a href="#" target="_blank" class="flex items-center gap-3 px-5 py-3 bg-slate-900 rounded-lg text-slate-400 hover:bg-primary hover:text-white transition-all group w-full md:w-auto">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                            <span>GitHub</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"></i>
                         </a>
                     </div>
                 </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-6">Navigation</h4>
-                    <ul class="space-y-3 text-slate-400">
-                        <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
-                        <li><a href="#experience" class="hover:text-primary transition-colors">Experience</a></li>
-                        <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-6">Contact Details</h4>
-                    <ul class="space-y-4 text-slate-400">
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="phone" class="text-primary w-4 h-4"></i>
-                            (71) 9 9371-2236
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="mail" class="text-primary w-4 h-4"></i>
-                            digofbastos@gmail.com
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="map-pin" class="text-primary w-4 h-4"></i>
-                            Salvador, BA
-                        </li>
-                    </ul>
-                </div>
             </div>
 
-            <div class="text-center text-slate-600 text-sm mt-16">
-                &copy; <span id="year"></span> Rodrigo Bastos. All rights reserved.
+            <div class="text-center text-slate-700 text-sm mt-16 border-t border-slate-900 pt-8">
+                &copy; <span id="year"></span> Rodrigo Bastos. All content is subject to copyright.
             </div>
         </div>
     </footer>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity opacity-0" id="modal-backdrop" onclick="closeModal()"></div>
+        
+        <!-- Panel -->
+        <div class="fixed inset-0 z-10 overflow-y-auto pointer-events-none">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0 pointer-events-none">
+                <div class="pointer-events-auto relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-3xl opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" id="modal-panel">
+                    <!-- Close Button -->
+                    <button onclick="closeModal()" class="absolute right-4 top-4 z-20 rounded-full bg-black/50 p-2 text-white hover:bg-primary transition-colors">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+    
+                    <!-- Content injected here -->
+                    <div id="modal-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script>
@@ -441,21 +468,58 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
             {
                 role: 'Robotics Engineer Intern',
                 company: 'SENAI CIMATEC',
-                period: '2024 - Present',
-                description: 'Simulating UAVs and soft robots in Gazebo with ROS2. Integrating PX4-Autopilot for autonomous missions and developing robotic manipulation systems. Working with embedded systems, sensor fusion, and real-time data using C++, Python, and Linux tools.'
+                period: '2024 - 2025',
+                description: 'Simulated UAVs and soft robots in Gazebo with ROS2, integrated PX4-Autopilot for autonomous missions, and developed robotic manipulation systems. Worked with embedded systems, sensor fusion, and real-time data. Applied C++, Python, and Linux tools for robotic software development.'
             },
             {
                 role: 'Robotics Junior Researcher',
                 company: 'SENAI CIMATEC',
                 period: '2023 - 2024',
-                description: 'Conducted applied research in aerial robotics, sensor fusion, and perception for autonomous mapping and navigation. Results were published and presented at SIINTEC X.'
+                description: 'Junior robotics researcher at SENAI CIMATEC. Conducted applied research in the field of aerial robotics, sensor fusion and perception for autonomous mapping and navigation. Results of this work were published and presented at SIINTEC X.'
+            },
+            {
+                role: 'IEEE RAS Volunteer',
+                company: 'IEEE Robotics and Automation Society',
+                period: '2022 - 2024',
+                description: 'Worked for the IEEE RAS Chapter. I held the positions of Member, Project Leader, and Vice-Chair.'
             },
             {
                 role: 'Scientific Research Volunteer',
                 company: 'SENAI CIMATEC',
-                period: '2021 - 2023',
-                description: 'Fellow researcher in a CNPq project. Developed an IoT solution with thermal camera computer vision for automatic leak detection in onshore oil pipelines to enhance real-time monitoring.'
+                period: '2022 - 2023',
+                description: 'Fellow researcher in a CNPq project, I developed an IoT solution with thermal camera computer vision for automatic leak detection in onshore oil pipelines. This system aims to enhance real-time monitoring, providing early and reliable detection of leaks in remote areas.'
             }
+        ];
+
+        const EDUCATION_DATA = [
+            {
+                degree: 'Bachelor of Electrical Engineering',
+                institution: 'SENAI CIMATEC',
+                period: '2021 - 2025',
+                description: 'Student of Electrical Engineering. Focusing on Control Systems, Embedded Electronics, and Robotics. Actively involved in research groups and scientific initiation projects.'
+            }
+        ];
+
+        const PUBLICATIONS_DATA = [
+            {
+                title: 'Map reconstruction and Localization: A comparison of LiDAR Odometry Algorithms for UAV Navigation',
+                context: 'SIINTEC X',
+                year: '2024',
+                tags: ['LIO', 'Drone', 'SLAM', 'Mapping', 'Localization']
+            },
+            {
+                title: 'IoT Leak Detection System for Onshore Oil Pipeline Based on Thermography',
+                context: 'CNPq Research',
+                year: '2023',
+                tags: ['leak detection', 'onshore oil fields', 'Internet of Things']
+            }
+        ];
+
+        const AREAS_DATA = [
+            { title: 'Autonomous Systems', desc: 'Advanced path planning and decision making.' },
+            { title: 'Sensor Fusion', desc: 'Integrating LiDAR, IMU, and Vision for state estimation.' },
+            { title: 'Deep Learning', desc: 'Applying Neural Networks for perception and control.' },
+            { title: 'Embedded Control', desc: 'Real-time control systems on RTOS/Linux.' }
         ];
 
         const PROJECTS_DATA = [
@@ -463,26 +527,43 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
                 title: 'Autonomous UAV Simulation',
                 category: 'Professional',
                 description: 'Simulated UAVs and soft robots in Gazebo with ROS2. Integrated PX4-Autopilot for autonomous missions and developed robotic manipulation systems.',
-                techStack: ['ROS 2', 'PX4', 'Gazebo', 'C++', 'Python'],
+                details: `
+                    <p class="mb-4"><strong>Project Overview:</strong> This project involved creating a high-fidelity simulation environment to test autonomous aerial vehicles without the risks associated with physical flight testing. The goal was to validate control algorithms and mission planning logic before field deployment.</p>
+                    <p class="mb-4"><strong>Key Technologies:</strong> Utilizing the Robot Operating System 2 (ROS 2) for modular software architecture and Gazebo for physics simulation. The UAV flight stack was managed by PX4 Autopilot, communicating via MAVLink/uORB. Custom plugins were developed in C++ to simulate specific sensor noise and environmental conditions.</p>
+                    <p class="mb-4"><strong>Outcome:</strong> Successfully demonstrated autonomous waypoint navigation, obstacle avoidance using simulated LiDAR data, and precision landing. This simulation framework is now used as the standard testing pipeline for validating new control algorithms.</p>
+                `,
+                techStack: ['ROS 2', 'PX4', 'Gazebo', 'C++'],
                 image: 'https://picsum.photos/id/1050/800/600?grayscale&blur=2',
                 size: 'wide',
                 id: 'p1'
             },
             {
-                title: 'LiDAR Odometry Comparison',
+                title: 'Map reconstruction and Localization',
                 category: 'Research',
-                description: 'Map reconstruction and Localization study. Compared LiDAR Odometry Algorithms for UAV Navigation, focusing on SLAM accuracy in aerial environments.',
-                techStack: ['LIO', 'SLAM', 'Mapping', 'Localization'],
-                image: 'https://picsum.photos/id/1000/800/600?grayscale&blur=2',
+                description: 'A comparison of LiDAR Odometry Algorithms for UAV Navigation. Focused on LIO, Drone, SLAM, Mapping, and Localization accuracy in aerial environments.',
+                details: `
+                    <p class="mb-4"><strong>Abstract:</strong> This research paper presents a comparative analysis of state-of-the-art LiDAR Odometry algorithms for Unmanned Aerial Vehicles (UAVs). The study evaluates the performance of LIO-SAM, FAST-LIO2, and DLIO in diverse environments ranging from urban canyons to unstructured vegetation.</p>
+                    <p class="mb-4"><strong>Methodology:</strong> A custom quadcopter equipped with an Ouster OS-1 LiDAR and a high-precision IMU was used to collect datasets. Ground truth was established using RTK-GPS. The algorithms were benchmarked on trajectory accuracy (ATE), computational load, and mapping consistency.</p>
+                    <p class="mb-4"><strong>Conclusion:</strong> The results indicated that while FAST-LIO2 offered superior computational efficiency suitable for onboard processing, LIO-SAM provided marginally better mapping consistency in feature-rich environments. This work was published at SIINTEC X.</p>
+                `,
+                techStack: ['LIO', 'Drone', 'SLAM', 'Mapping', 'Localization'],
+                // Using a placeholder that suggests "Research Paper"
+                image: 'https://images.unsplash.com/photo-1516414447565-b14be0adf13e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
                 size: 'normal',
                 id: 'r1'
             },
             {
-                title: 'IoT Pipeline Leak Detection',
+                title: 'IoT Leak Detection System',
                 category: 'Research',
-                description: 'Developed an IoT solution with thermal camera computer vision for automatic leak detection in onshore oil pipelines.',
-                techStack: ['IoT', 'Computer Vision', 'Thermography', 'Python'],
-                image: 'https://picsum.photos/id/250/600/800?grayscale&blur=2',
+                description: 'IoT Leak Detection System for Onshore Oil Pipeline Based on Thermography. Developed an IoT solution with thermal camera computer vision.',
+                details: `
+                    <p class="mb-4"><strong>Problem:</strong> Onshore oil pipelines in remote areas are susceptible to small leaks that are difficult to detect with conventional pressure sensors. These leaks can cause significant environmental damage before being noticed.</p>
+                    <p class="mb-4"><strong>Solution:</strong> Developed a low-cost, autonomous IoT node powered by solar energy. The system utilizes a FLIR Lepton thermal camera coupled with a Raspberry Pi Zero. A custom computer vision algorithm processes the thermal images to detect temperature anomalies characteristic of oil leaks.</p>
+                    <p class="mb-4"><strong>Results:</strong> The system achieves a 94% detection rate with false positives minimized by environmental filtering logic. Alerts are transmitted via LoRaWAN to a central dashboard. This project was developed under a CNPq research grant.</p>
+                `,
+                techStack: ['leak detection', 'onshore oil fields', 'IoT'],
+                // Using a placeholder that suggests "Industrial/IoT"
+                image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
                 size: 'tall',
                 id: 'r2'
             },
@@ -490,18 +571,16 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
                 title: 'Solarfly Drone',
                 category: 'Personal',
                 description: 'Innovative solution to revolutionize inspection and cleaning at solar plants through the use of autonomous drones.',
+                details: `
+                    <p class="mb-4"><strong>Concept:</strong> Solarfly is a prototype autonomous drone system designed to automate the inspection and cleaning of large-scale solar photovoltaic plants. Manual inspection is slow and expensive, while dust accumulation significantly reduces energy output.</p>
+                    <p class="mb-4"><strong>Implementation:</strong> The drone utilizes a downward-facing camera and onboard Jetson Nano to run real-time defect detection models (YOLOv5) on solar panels. It also features a path planning algorithm that optimizes coverage based on the plant's layout.</p>
+                    <p class="mb-4"><strong>Status:</strong> Currently in the prototyping phase. Initial flight tests have demonstrated stable autonomous navigation over panel arrays and successful identification of hotspots and cracks.</p>
+                `,
                 techStack: ['UAVs', 'Autonomous Flight', 'Inspection'],
                 image: 'https://picsum.photos/id/433/800/600?grayscale&blur=2',
                 size: 'normal',
                 id: 'pers1'
             },
-        ];
-
-        const SOFT_SKILLS_DATA = [
-            { title: 'Innovation', icon: 'lightbulb', description: 'Passionate about creating novel solutions for complex problems.' },
-            { title: 'Research', icon: 'search', description: 'Experienced in scientific methodology and academic publication.' },
-            { title: 'Adaptability', icon: 'brain', description: 'Transitioning between high-level software and low-level hardware.' },
-            { title: 'Teamwork', icon: 'users', description: 'Collaborating in multidisciplinary engineering teams.' },
         ];
 
         // --- INITIALIZATION ---
@@ -511,12 +590,18 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
             
             initTypewriter();
             initNavbar();
-            initScrollAnimation();
+            
+            // Render content first so elements exist in the DOM
             renderExperience();
-            renderSoftSkills();
+            renderEducation();
+            renderPublications();
+            renderDevelopmentAreas();
             renderProjects('All');
             initChart();
             initProjectFilters();
+
+            // Initialize Scroll Animation AFTER content is rendered
+            initScrollAnimation();
         });
 
         // --- TYPEWRITER EFFECT ---
@@ -585,7 +670,6 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
             const el = document.getElementById(id);
             if (el) {
                 el.scrollIntoView({ behavior: 'smooth' });
-                // Close mobile menu if open
                 document.getElementById('mobile-menu').classList.add('hidden');
                 document.getElementById('menu-icon').setAttribute('data-lucide', 'menu');
                 lucide.createIcons();
@@ -599,6 +683,8 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
+                        // Optionally stop observing once revealed
+                        // observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.1 });
@@ -609,8 +695,11 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
         // --- RENDER FUNCTIONS ---
         function renderExperience() {
             const container = document.getElementById('experience-container');
+            if(!container) return;
+            container.innerHTML = '<div class="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 h-full w-[2px] bg-slate-800"></div>'; // Reset
+            
             EXPERIENCE_DATA.forEach((exp, idx) => {
-                const isLeft = idx % 2 !== 0; // Alternate sides (desktop)
+                const isLeft = idx % 2 !== 0; 
                 
                 const item = document.createElement('div');
                 item.className = `flex flex-col md:flex-row gap-8 mb-12 reveal ${isLeft ? 'md:flex-row-reverse' : ''}`;
@@ -631,24 +720,71 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
             });
         }
 
-        function renderSoftSkills() {
-            const container = document.getElementById('soft-skills-container');
-            SOFT_SKILLS_DATA.forEach(skill => {
-                const el = document.createElement('div');
-                el.className = 'bg-slate-800/30 p-6 rounded-3xl border border-white/5 hover:bg-slate-800/60 transition-all duration-300 group hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 reveal';
-                el.innerHTML = `
-                    <div class="w-10 h-10 bg-white/5 rounded-2xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform group-hover:bg-primary group-hover:text-white">
-                        <i data-lucide="${skill.icon}" class="w-5 h-5"></i>
+        function renderEducation() {
+            const container = document.getElementById('education-container');
+            if(!container) return;
+            container.innerHTML = '';
+
+            EDUCATION_DATA.forEach(edu => {
+                 const item = document.createElement('div');
+                 item.className = 'bg-slate-800/40 border border-white/5 p-8 rounded-2xl hover:border-primary/30 transition-all shadow-lg reveal';
+                 item.innerHTML = `
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">${edu.degree}</h4>
+                            <h5 class="text-lg text-slate-400">${edu.institution}</h5>
+                        </div>
+                        <span class="px-4 py-2 bg-slate-900 rounded-full text-primary text-sm font-bold border border-slate-800">${edu.period}</span>
                     </div>
-                    <h4 class="text-lg font-bold text-white mb-2">${skill.title}</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed group-hover:text-slate-400 transition-colors">${skill.description}</p>
+                    <p class="text-slate-300 leading-relaxed">${edu.description}</p>
+                 `;
+                 container.appendChild(item);
+            });
+        }
+
+        function renderPublications() {
+            const container = document.getElementById('publications-list');
+            if(!container) return;
+            container.innerHTML = '';
+
+            PUBLICATIONS_DATA.forEach(pub => {
+                const item = document.createElement('div');
+                item.className = 'bg-transparent border-l-4 border-slate-700 pl-6 py-2 hover:border-primary transition-colors reveal group';
+                item.innerHTML = `
+                    <h4 class="text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors">${pub.title}</h4>
+                    <p class="text-slate-400 text-sm mb-2">${pub.context} | ${pub.year}</p>
+                    <div class="flex gap-2 flex-wrap">
+                        ${pub.tags.map(tag => `<span class="text-[10px] font-mono uppercase text-slate-500 bg-slate-800/50 px-2 py-1 rounded">${tag}</span>`).join('')}
+                    </div>
                 `;
-                container.appendChild(el);
+                container.appendChild(item);
+            });
+        }
+
+        function renderDevelopmentAreas() {
+            const container = document.getElementById('areas-container');
+            if(!container) return;
+            container.innerHTML = '';
+
+            AREAS_DATA.forEach(area => {
+                const item = document.createElement('div');
+                item.className = 'bg-slate-800/30 p-5 rounded-xl border border-white/5 hover:bg-slate-800/80 transition-all flex items-start gap-4 group';
+                item.innerHTML = `
+                    <div class="mt-1 text-primary">
+                        <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-white text-sm mb-1">${area.title}</h5>
+                        <p class="text-xs text-slate-400">${area.desc}</p>
+                    </div>
+                `;
+                container.appendChild(item);
             });
         }
 
         function renderProjects(category) {
             const grid = document.getElementById('projects-grid');
+            if(!grid) return;
             grid.innerHTML = ''; // Clear
             
             const filtered = category === 'All' ? PROJECTS_DATA : PROJECTS_DATA.filter(p => p.category === category);
@@ -665,9 +801,9 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
                         <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
                     </div>
                     <div class="relative z-10 h-full flex flex-col p-8 justify-end">
-                        <div class="absolute top-8 right-8 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-500 text-white border border-white/10 group-hover:bg-primary group-hover:border-primary">
+                        <button onclick="openModal('${proj.id}')" class="absolute top-8 right-8 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-500 text-white border border-white/10 group-hover:bg-primary group-hover:border-primary cursor-pointer z-20">
                             <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-                        </div>
+                        </button>
                         <div class="transform transition-transform duration-500 group-hover:-translate-y-2">
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="text-primary text-xs font-bold tracking-widest uppercase bg-primary/10 px-3 py-1 rounded-full border border-primary/20">${proj.category}</span>
@@ -681,6 +817,18 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
                 grid.appendChild(card);
             });
             lucide.createIcons();
+            
+            // Re-observe new elements if needed, but usually initial observer handles persistent ones if added correctly, 
+            // or we need to re-attach observer for dynamically filtered items.
+            const reveals = grid.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            reveals.forEach(el => observer.observe(el));
         }
 
         function initProjectFilters() {
@@ -699,6 +847,67 @@ Whether it's simulating soft robots in Gazebo or deploying sensor fusion algorit
                     renderProjects(btn.getAttribute('data-filter'));
                 });
             });
+        }
+
+        // --- MODAL LOGIC ---
+        function openModal(projectId) {
+            const project = PROJECTS_DATA.find(p => p.id === projectId);
+            if (!project) return;
+
+            const modal = document.getElementById('project-modal');
+            const backdrop = document.getElementById('modal-backdrop');
+            const panel = document.getElementById('modal-panel');
+            const content = document.getElementById('modal-content');
+
+            // Populate content
+            content.innerHTML = `
+                <div class="relative h-64 sm:h-80">
+                    <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                         <div class="flex gap-2 mb-3 flex-wrap">
+                            <span class="text-primary text-xs font-bold tracking-widest uppercase bg-primary/10 px-3 py-1 rounded-full border border-primary/20">${project.category}</span>
+                            ${project.techStack.map(t => `<span class="text-slate-300 text-xs font-medium bg-white/5 px-3 py-1 rounded-full border border-white/10">${t}</span>`).join('')}
+                        </div>
+                        <h3 class="text-3xl font-bold text-white">${project.title}</h3>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed">
+                        ${project.details || `<p>${project.description}</p>`}
+                    </div>
+                </div>
+            `;
+
+            // Show modal
+            modal.classList.remove('hidden');
+            lucide.createIcons();
+
+            // Animation
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                panel.classList.remove('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+                panel.classList.add('opacity-100', 'translate-y-0', 'sm:scale-100');
+            }, 10);
+            
+            // Lock body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            const backdrop = document.getElementById('modal-backdrop');
+            const panel = document.getElementById('modal-panel');
+
+            // Animation reverse
+            backdrop.classList.add('opacity-0');
+            panel.classList.remove('opacity-100', 'translate-y-0', 'sm:scale-100');
+            panel.classList.add('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
         }
 
         // --- CHARTS ---

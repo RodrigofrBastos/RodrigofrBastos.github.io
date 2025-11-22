@@ -3,7 +3,7 @@ import React from 'react';
 export interface Project {
   id: string;
   title: string;
-  category: 'Professional' | 'Graduation';
+  category: 'Professional' | 'Research' | 'Personal';
   description: string;
   techStack: string[];
   image: string;
@@ -23,9 +23,18 @@ export interface SoftSkill {
   description: string;
 }
 
+export interface ExperienceItem {
+  id: string;
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+}
+
 export enum NavLink {
   Home = 'home',
   About = 'about',
+  Experience = 'experience',
   Skills = 'skills',
   Projects = 'projects',
   Contact = 'contact',

@@ -13,8 +13,8 @@ const About: React.FC = () => {
            transition={{ duration: 0.6 }}
         >
           <h2 className="text-primary text-sm font-bold tracking-widest mb-4 uppercase">Who Am I?</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-8">Engineer | Solution Maker | Innovator</h3>
-
+          <h3 className="text-3xl md:text-4xl font-bold text-white mb-8">Engineer. Maker. Problem Solver.</h3>
+          
           <div className="relative p-8 bg-slate-800/30 border border-slate-700 rounded-2xl backdrop-blur-sm">
             <p className="text-slate-300 text-lg leading-loose whitespace-pre-line">
               {BIO_TEXT}

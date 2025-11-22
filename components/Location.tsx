@@ -5,46 +5,56 @@ import { MapPin, Globe, ArrowRight } from 'lucide-react';
 
 const Location: React.FC = () => {
   return (
-    <section className="py-24 bg-dark relative overflow-hidden border-t border-slate-800/30">
-      {/* Background Gradient Spot */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 30 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+    <section className="py-10 bg-dark border-t border-white/5 flex justify-center">
+      <div className="max-w-4xl w-full px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.6 }}
+          className="group relative bg-slate-800/30 backdrop-blur-md border border-white/5 rounded-full px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 hover:border-primary/20 hover:bg-slate-800/50 transition-all duration-500 shadow-lg shadow-black/20"
         >
-          <div className="inline-flex items-center gap-2 text-primary mb-8 bg-slate-800/50 px-5 py-2 rounded-full border border-slate-700 backdrop-blur-sm">
-            <MapPin size={16} />
-            <span className="text-xs font-bold tracking-widest uppercase">Base of Operations</span>
+          {/* Label */}
+          <div className="hidden md:block text-slate-500 text-xs font-bold tracking-widest uppercase mr-auto border-r border-white/10 pr-6">
+            Location Status
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-12 tracking-tight leading-tight">
-            Based in <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-              Salvador, Bahia
-            </span>
-          </h2>
+          {/* Timeline Center */}
+          <div className="flex items-center gap-6 md:gap-10 w-full md:w-auto justify-center">
+             
+             {/* Current Node */}
+             <div className="flex items-center gap-3">
+                <div className="relative flex items-center justify-center w-3 h-3">
+                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </div>
+                <div className="flex flex-col">
+                   <span className="text-white font-bold text-sm leading-none">Salvador (BR)</span>
+                   <span className="text-[10px] text-primary/80 font-mono uppercase tracking-wider mt-1">Current Base</span>
+                </div>
+             </div>
 
-          {/* Timeline Visual */}
-          <div className="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-4 mt-12 mb-12">
+             {/* Connector */}
+             <div className="flex items-center opacity-30 group-hover:opacity-100 transition-opacity duration-500 text-primary">
+                <div className="w-4 md:w-12 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+                <ArrowRight size={14} className="ml-[-4px]" />
+             </div>
 
-            {/* Timeline Item 1: Current */}
-            <div className="flex flex-col items-center relative group z-10">
-              <div className="w-20 h-20 rounded-full bg-slate-800 border-2 border-primary shadow-[0_0_30px_rgba(59,130,246,0.4)] flex items-center justify-center mb-4 transition-transform duration-300 hover:scale-110">
-                <MapPin className="text-white" size={28} />
-              </div>
-              <div className="text-white font-bold text-xl">Brazil</div>
-              <div className="text-primary text-xs font-bold tracking-widest uppercase mt-2 bg-primary/10 px-3 py-1 rounded-full">Current Base</div>
-            </div>
-
+             {/* Future Node */}
+             <div className="flex items-center gap-3 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
+                <Globe size={16} className="text-slate-400 group-hover:text-accent transition-colors" />
+                <div className="flex flex-col">
+                   <span className="text-slate-300 font-bold text-sm leading-none group-hover:text-white transition-colors">Worldwide</span>
+                   <span className="text-[10px] text-slate-500 font-mono uppercase tracking-wider mt-1">Open to Relocation</span>
+                </div>
+             </div>
           </div>
-          <p className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-            Engineering solutions from Northeastern Brazil.
-            Available to work worldwide.
-          </p>
+
+          {/* Action Hint */}
+          <div className="hidden md:block ml-auto pl-6 border-l border-white/10">
+             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" title="Online"></div>
+          </div>
+
         </motion.div>
       </div>
     </section>

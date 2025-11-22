@@ -17,15 +17,15 @@ const Skills: React.FC = () => {
             viewport={{ once: true }}
             className="lg:col-span-1 flex flex-col justify-center"
           >
-            <h2 className="text-5xl font-bold text-white mb-6">Technical <br /><span className="text-slate-600">Skills</span></h2>
+            <h2 className="text-5xl font-bold text-white mb-6">Technical <br /><span className="text-slate-600">Arsenal</span></h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              From low-level hardware control to high-level programming.
+              A balance of low-level hardware control and high-level algorithmic reasoning.
             </p>
             <div className="p-6 bg-slate-800/30 rounded-3xl border border-white/5">
                <p className="text-primary font-mono text-sm mb-2">// CORE COMPETENCIES</p>
                <div className="flex flex-wrap gap-2">
-                 {['ROS 2', 'PX4-Autopilot','C', "C++", 'Python', 'Perception', 'Machine Learning'].map(tag => (
-                   <span key={tag} className="px-8 py-1 bg-slate-700/50 rounded-md text-slate-300 text-xs border border-white/5 hover:border-primary/30 hover:text-white transition-colors">{tag}</span>
+                 {['ROS 2', 'C++ 17', 'Python', 'SLAM', 'OpenCV', 'MoveIt'].map(tag => (
+                   <span key={tag} className="px-3 py-1 bg-slate-700/50 rounded-md text-slate-300 text-xs border border-white/5 hover:border-primary/30 hover:text-white transition-colors">{tag}</span>
                  ))}
                </div>
             </div>

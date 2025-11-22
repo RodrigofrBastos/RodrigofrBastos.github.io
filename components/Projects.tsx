@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const Projects: React.FC = () => {
-  const [filter, setFilter] = useState<'All' | 'Professional' | 'Graduation'>('All');
+  const [filter, setFilter] = useState<'All' | 'Professional' | 'Research' | 'Personal'>('All');
 
   const filteredProjects = filter === 'All' 
     ? PROJECTS 
@@ -25,14 +25,14 @@ const Projects: React.FC = () => {
           className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
         >
           <div>
-             <h2 className="text-5xl font-bold text-white mb-4 tracking-tight">Selected <span className="text-slate-600">Work</span></h2>
+             <h2 className="text-5xl font-bold text-white mb-4 tracking-tight">Featured <span className="text-slate-600">Work</span></h2>
              <p className="text-slate-400 max-w-md text-lg">
-               A collection of autonomous systems, control algorithms, and hardware integrations.
+               A selection of research papers, drone prototypes, and industrial applications.
              </p>
           </div>
           
-          <div className="flex bg-slate-900/50 p-1.5 rounded-full border border-slate-800 backdrop-blur-sm">
-            {(['All', 'Professional', 'Graduation'] as const).map((cat) => (
+          <div className="flex flex-wrap gap-2 bg-slate-900/50 p-1.5 rounded-3xl md:rounded-full border border-slate-800 backdrop-blur-sm">
+            {(['All', 'Professional', 'Research', 'Personal'] as const).map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}

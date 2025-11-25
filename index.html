@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rodrigo Bastos | Robotics Engineer & Researcher</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Outfit', 'sans-serif'],
-              serif: ['Playfair Display', 'serif'],
-              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
+                    },
+                    colors: {
+                        primary: '#3B82F6', // Blue 500
+                        accent: '#8B5CF6', // Violet 500
+                        secondary: '#1E293B', // Slate 800
+                        dark: '#0F172A', // Slate 900
+                    },
+                    animation: {
+                        'float-1': 'float1 5s ease-in-out infinite',
+                        'float-2': 'float2 6s ease-in-out infinite',
+                        'blink': 'blink 1s step-end infinite',
+                    },
+                    keyframes: {
+                        float1: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
+                            '50%': { transform: 'translate(5px, -10px) rotate(-2deg)' },
+                        },
+                        float2: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
+                            '50%': { transform: 'translate(-5px, 12px) rotate(2deg)' },
+                        },
+                        blink: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0 },
+                        },
+                    }
+                },
             },
-            colors: {
-              primary: '#3B82F6', // Blue 500
-              accent: '#8B5CF6', // Violet 500
-              secondary: '#1E293B', // Slate 800
-              dark: '#0F172A', // Slate 900
-            },
-            animation: {
-              'float-1': 'float1 5s ease-in-out infinite',
-              'float-2': 'float2 6s ease-in-out infinite',
-              'blink': 'blink 1s step-end infinite',
-            },
-            keyframes: {
-              float1: {
-                '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
-                '50%': { transform: 'translate(5px, -10px) rotate(-2deg)' },
-              },
-              float2: {
-                '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
-                '50%': { transform: 'translate(-5px, 12px) rotate(2deg)' },
-              },
-              blink: {
-                '0%, 100%': { opacity: 1 },
-                '50%': { opacity: 0 },
-              },
-            }
-          },
-        },
-      }
+        }
     </script>
 
     <style>
@@ -61,13 +64,16 @@
         ::-webkit-scrollbar {
             width: 10px;
         }
+
         ::-webkit-scrollbar-track {
             background: #0F172A;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #334155;
             border-radius: 5px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #3B82F6;
         }
@@ -78,12 +84,13 @@
             transform: translateY(30px);
             transition: all 0.8s ease-out;
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
     </style>
-<script type="importmap">
+    <script type="importmap">
 {
   "imports": {
     "react": "https://aistudiocdn.com/react@^19.2.0",
@@ -94,8 +101,9 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/index.css">
 </head>
+
 <body class="bg-dark text-white overflow-x-hidden font-sans selection:bg-primary selection:text-dark">
 
     <!-- Navbar -->
@@ -103,17 +111,24 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2 cursor-pointer" onclick="scrollToSection('home')">
                 <i data-lucide="cpu" class="text-primary w-8 h-8"></i>
-                <span class="text-xl font-bold tracking-wider text-white">ROBO<span class="text-primary">DEV</span></span>
+                <span class="text-xl font-bold tracking-wider text-white">my<span
+                        class="text-primary">Profile</span></span>
             </div>
 
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center gap-6 xl:gap-8">
-                <button onclick="scrollToSection('about')" class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">About</button>
-                <button onclick="scrollToSection('experience')" class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Experience</button>
-                <button onclick="scrollToSection('education')" class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Education</button>
-                <button onclick="scrollToSection('publications')" class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Research</button>
-                <button onclick="scrollToSection('projects')" class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Projects</button>
-                <button onclick="scrollToSection('contact')" class="px-5 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 font-bold text-xs shadow-sm hover:shadow-primary/50">
+                <button onclick="scrollToSection('about')"
+                    class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">About</button>
+                <button onclick="scrollToSection('experience')"
+                    class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Experience</button>
+                <button onclick="scrollToSection('education')"
+                    class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Education</button>
+                <button onclick="scrollToSection('publications')"
+                    class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Research</button>
+                <button onclick="scrollToSection('projects')"
+                    class="text-slate-300 hover:text-primary font-medium uppercase text-xs tracking-widest transition-colors">Projects</button>
+                <button onclick="scrollToSection('contact')"
+                    class="px-5 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 font-bold text-xs shadow-sm hover:shadow-primary/50">
                     CONTACT
                 </button>
             </div>
@@ -125,14 +140,21 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-dark/95 backdrop-blur-xl border-b border-slate-800 absolute w-full top-full left-0 shadow-2xl">
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-dark/95 backdrop-blur-xl border-b border-slate-800 absolute w-full top-full left-0 shadow-2xl">
             <div class="flex flex-col items-center py-8 gap-6 h-screen overflow-y-auto pb-32">
-                <button onclick="scrollToSection('about')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">About</button>
-                <button onclick="scrollToSection('experience')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Experience</button>
-                <button onclick="scrollToSection('education')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Education</button>
-                <button onclick="scrollToSection('publications')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Research</button>
-                <button onclick="scrollToSection('projects')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Projects</button>
-                <button onclick="scrollToSection('contact')" class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Contact</button>
+                <button onclick="scrollToSection('about')"
+                    class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">About</button>
+                <button onclick="scrollToSection('experience')"
+                    class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Experience</button>
+                <button onclick="scrollToSection('education')"
+                    class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Education</button>
+                <button onclick="scrollToSection('publications')"
+                    class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Research</button>
+                <button onclick="scrollToSection('projects')"
+                    class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Projects</button>
+                <button onclick="scrollToSection('contact')"
+                    class="text-white text-lg font-medium uppercase tracking-widest hover:text-primary">Contact</button>
             </div>
         </div>
     </nav>
@@ -140,18 +162,22 @@
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-dark">
         <!-- Gradient Background -->
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-dark to-dark pointer-events-none"></div>
+        <div
+            class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-dark to-dark pointer-events-none">
+        </div>
 
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-            
+
             <!-- Left Content -->
             <div class="flex flex-col justify-center reveal active">
                 <div class="inline-flex items-center gap-3 mb-8">
                     <span class="relative flex h-3 w-3">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
                     </span>
-                    <span class="text-slate-400 text-sm font-medium tracking-widest uppercase">Academic & Professional Portfolio</span>
+                    <span class="text-slate-400 text-sm font-medium tracking-widest uppercase">Academic & Professional
+                        Portfolio</span>
                 </div>
 
                 <h1 class="text-6xl md:text-8xl font-bold leading-tight mb-6 font-sans tracking-tight text-white">
@@ -161,27 +187,33 @@
 
                 <div class="h-8 mb-8 flex items-center">
                     <span class="text-lg md:text-xl font-mono text-primary">
-                        &gt; <span id="typewriter-text"></span><span class="inline-block w-2 h-5 bg-primary ml-1 animate-blink align-middle"></span>
+                        &gt; <span id="typewriter-text"></span><span
+                            class="inline-block w-2 h-5 bg-primary ml-1 animate-blink align-middle"></span>
                     </span>
                 </div>
 
                 <p class="text-slate-400 text-lg md:text-xl max-w-lg leading-relaxed mb-8">
-                    Passionate about Innovation. Bridging the gap between Electrical Engineering and Robotics Software through academic research and applied development.
+                    Passionate about Innovation. Bridging the gap between Electrical Engineering and Robotics Software
+                    through academic research and applied development.
                 </p>
 
                 <!-- Location Timeline -->
                 <div class="mb-10 w-full max-w-[450px]">
-                    <div class="group relative bg-slate-800/30 backdrop-blur-md border border-white/5 rounded-full px-6 py-3 flex items-center justify-between hover:border-primary/20 hover:bg-slate-800/50 transition-all duration-500 shadow-lg shadow-black/20 cursor-default">
+                    <div
+                        class="group relative bg-slate-800/30 backdrop-blur-md border border-white/5 rounded-full px-6 py-3 flex items-center justify-between hover:border-primary/20 hover:bg-slate-800/50 transition-all duration-500 shadow-lg shadow-black/20 cursor-default">
                         <div class="flex items-center gap-4 w-full justify-between">
                             <!-- Current -->
                             <div class="flex items-center gap-3">
                                 <div class="relative flex items-center justify-center w-3 h-3">
-                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                    <span
+                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                     <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                                 </div>
                                 <div class="flex flex-col">
                                     <span class="text-white font-bold text-sm leading-none">Salvador (BR)</span>
-                                    <span class="text-[10px] text-primary/80 font-mono uppercase tracking-wider mt-0.5">Current Base</span>
+                                    <span
+                                        class="text-[10px] text-primary/80 font-mono uppercase tracking-wider mt-0.5">Current
+                                        Base</span>
                                 </div>
                             </div>
                         </div>
@@ -189,10 +221,12 @@
                 </div>
 
                 <div class="flex flex-wrap gap-6">
-                    <button onclick="scrollToSection('publications')" class="px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg shadow-primary/25">
-                        View Research
+                    <button onclick="scrollToSection('projects')"
+                        class="px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg shadow-primary/25">
+                        View Projects
                     </button>
-                    <a href="fig/Perfil técnicooperacional [PT].pdf" class="px-8 py-4 border border-slate-700 text-white rounded-full hover:border-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                    <a href="fig/CV.pdf" target="_blank"
+                        class="px-8 py-4 border border-slate-700 text-white rounded-full hover:border-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
                         <i data-lucide="download" class="w-4 h-4"></i> Download CV
                     </a>
                 </div>
@@ -201,8 +235,10 @@
             <!-- Right Visual -->
             <div class="relative flex justify-center lg:justify-end py-12 lg:py-0 reveal delay-200">
                 <!-- Image Card -->
-                <div class="relative w-[350px] h-[450px] md:w-[450px] md:h-[550px] rounded-[2.5rem] overflow-hidden bg-slate-800 border border-slate-700 shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500 z-10">
-                    <img src="fig/image.png" alt="Rodrigo Bastos" class="w-full h-full object-cover opacity-90 hover:scale-110 transition-transform duration-700">
+                <div
+                    class="relative w-[350px] h-[450px] md:w-[450px] md:h-[550px] rounded-[2.5rem] overflow-hidden bg-slate-800 border border-slate-700 shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500 z-10">
+                    <img src="fig/image.png" alt="Rodrigo Bastos"
+                        class="w-full h-full object-cover opacity-90 hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent"></div>
                     <div class="absolute bottom-8 left-8 right-8">
                         <div class="text-white font-bold text-2xl">Rodrigo Bastos</div>
@@ -211,7 +247,8 @@
                 </div>
 
                 <!-- Floating Card 1 -->
-                <div class="absolute top-4 -left-4 md:top-20 md:-left-24 z-20 bg-slate-800/90 backdrop-blur-md p-4 pr-6 rounded-2xl border border-slate-700 shadow-2xl flex items-center gap-3 scale-90 md:scale-100 animate-float-1">
+                <div
+                    class="absolute top-4 -left-4 md:top-20 md:-left-24 z-20 bg-slate-800/90 backdrop-blur-md p-4 pr-6 rounded-2xl border border-slate-700 shadow-2xl flex items-center gap-3 scale-90 md:scale-100 animate-float-1">
                     <div class="bg-primary/20 p-2 rounded-full text-primary">
                         <i data-lucide="terminal" class="w-5 h-5"></i>
                     </div>
@@ -222,7 +259,8 @@
                 </div>
 
                 <!-- Floating Card 2 -->
-                <div class="absolute bottom-10 -right-4 md:bottom-24 md:-right-16 z-20 bg-slate-800/90 backdrop-blur-md p-4 pr-6 rounded-2xl border border-slate-700 shadow-2xl flex items-center gap-3 scale-90 md:scale-100 animate-float-2">
+                <div
+                    class="absolute bottom-10 -right-4 md:bottom-24 md:-right-16 z-20 bg-slate-800/90 backdrop-blur-md p-4 pr-6 rounded-2xl border border-slate-700 shadow-2xl flex items-center gap-3 scale-90 md:scale-100 animate-float-2">
                     <div class="bg-primary p-2 rounded-full text-white shadow-lg shadow-primary/30">
                         <i data-lucide="layers" class="w-5 h-5"></i>
                     </div>
@@ -235,7 +273,8 @@
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 animate-bounce cursor-pointer" onclick="scrollToSection('about')">
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 animate-bounce cursor-pointer"
+            onclick="scrollToSection('about')">
             <i data-lucide="chevron-down" class="w-6 h-6"></i>
         </div>
     </section>
@@ -245,13 +284,17 @@
         <div class="max-w-4xl mx-auto px-6 text-center reveal">
             <h2 class="text-primary text-sm font-bold tracking-widest mb-4 uppercase">Who Am I?</h2>
             <h3 class="text-3xl md:text-4xl font-bold text-white mb-8">Researcher. Engineer. Innovator.</h3>
-            
-            <div class="relative p-8 bg-slate-800/30 border border-slate-700 rounded-2xl backdrop-blur-sm text-left md:text-center">
-                <p class="text-slate-300 text-lg leading-loose whitespace-pre-line">
-I'm Rodrigo, and I am a Robotics Engineer graduate in Electrical Engineering.
 
-I'm passionate about creating intelligent systems that integrate software and hardware to solve real-world problems. My journey started on a robotics laboratory during my undergraduate years, where I learned the fundamentals of robotics and control systems.
-This passion drove me into Robotics, where I am striving deep into the field of Autonomous Systems, focusing on Machine Learning, UAV framework (PX4), ROS 2 and Embedded Systems development.
+            <div
+                class="relative p-8 bg-slate-800/30 border border-slate-700 rounded-2xl backdrop-blur-sm text-left md:text-center">
+                <p class="text-slate-300 text-lg leading-loose whitespace-pre-line">
+                    I'm Rodrigo, and I am a Robotics Engineer graduate in Electrical Engineering.
+
+                    I'm passionate about creating intelligent systems that integrate software and hardware to solve
+                    real-world problems. My journey started on a robotics laboratory during my undergraduate years,
+                    where I learned the fundamentals of robotics and control systems.
+                    This passion drove me into Robotics, where I am striving deep into the field of Autonomous Systems,
+                    focusing on Machine Learning, UAV framework (PX4), ROS 2 and Embedded Systems development.
                 </p>
                 <span class="absolute top-4 left-6 text-6xl text-slate-700 opacity-50 font-serif">“</span>
                 <span class="absolute bottom-[-20px] right-6 text-6xl text-slate-700 opacity-50 font-serif">”</span>
@@ -269,8 +312,9 @@ This passion drove me into Robotics, where I am striving deep into the field of 
 
             <div class="relative" id="experience-container">
                 <!-- Vertical Line -->
-                <div class="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 h-full w-[2px] bg-slate-800"></div>
-                
+                <div class="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 h-full w-[2px] bg-slate-800">
+                </div>
+
                 <!-- Experience items will be injected here via JS -->
             </div>
         </div>
@@ -283,7 +327,7 @@ This passion drove me into Robotics, where I am striving deep into the field of 
                 <h2 class="text-primary text-sm font-bold tracking-widest mb-4 uppercase">Academic Background</h2>
                 <h3 class="text-3xl md:text-4xl font-bold text-white">Education</h3>
             </div>
-            
+
             <div id="education-container" class="grid grid-cols-1 gap-8">
                 <!-- Education injected here -->
             </div>
@@ -293,7 +337,7 @@ This passion drove me into Robotics, where I am striving deep into the field of 
     <!-- Publications Section -->
     <section id="publications" class="py-24 bg-dark border-t border-slate-800">
         <div class="max-w-5xl mx-auto px-6">
-             <div class="text-center mb-16 reveal">
+            <div class="text-center mb-16 reveal">
                 <h2 class="text-primary text-sm font-bold tracking-widest mb-4 uppercase">Research</h2>
                 <h3 class="text-3xl md:text-4xl font-bold text-white">Publications & Productions</h3>
             </div>
@@ -307,11 +351,12 @@ This passion drove me into Robotics, where I am striving deep into the field of 
     <section id="development" class="py-32 bg-dark border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                
+
                 <!-- Technical Skills Radar -->
                 <div class="lg:col-span-2 reveal">
                     <h3 class="text-2xl font-bold text-white mb-6">Technical Proficiency</h3>
-                    <div class="bg-slate-800/40 backdrop-blur-sm border border-white/5 rounded-[2.5rem] p-8 h-[500px] relative hover:border-primary/20 transition-colors">
+                    <div
+                        class="bg-slate-800/40 backdrop-blur-sm border border-white/5 rounded-[2.5rem] p-8 h-[500px] relative hover:border-primary/20 transition-colors">
                         <ResponsiveContainer width="100%" height="100%">
                             <canvas id="skillsChart"></canvas>
                         </ResponsiveContainer>
@@ -320,11 +365,11 @@ This passion drove me into Robotics, where I am striving deep into the field of 
 
                 <!-- Areas to Develop -->
                 <div class="lg:col-span-1 reveal">
-                     <h3 class="text-2xl font-bold text-white mb-6">Areas of Development</h3>
-                     <p class="text-slate-400 mb-6">Focusing on expanding expertise in cutting-edge robotics fields.</p>
-                     <div id="areas-container" class="grid grid-cols-1 gap-4">
+                    <h3 class="text-2xl font-bold text-white mb-6">Areas of Development</h3>
+                    <p class="text-slate-400 mb-6">Focusing on expanding expertise in cutting-edge robotics fields.</p>
+                    <div id="areas-container" class="grid grid-cols-1 gap-4">
                         <!-- Areas injected here -->
-                     </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -333,22 +378,36 @@ This passion drove me into Robotics, where I am striving deep into the field of 
     <!-- Projects Section -->
     <section id="projects" class="py-32 bg-dark relative border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-6">
-            
+
             <!-- Header -->
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal">
                 <div>
-                    <h2 class="text-5xl font-bold text-white mb-4 tracking-tight">Featured <span class="text-slate-600">Work</span></h2>
+                    <h2 class="text-5xl font-bold text-white mb-4 tracking-tight">Featured <span
+                            class="text-slate-600">Work</span></h2>
                     <p class="text-slate-400 max-w-md text-lg">
                         A comprehensive portfolio of academic research, industrial solutions, and personal prototypes.
                     </p>
                 </div>
-                
+
                 <!-- Filters -->
-                <div class="flex flex-wrap gap-2 bg-slate-900/50 p-1.5 rounded-3xl md:rounded-full border border-slate-800 backdrop-blur-sm" id="project-filters">
-                    <button class="filter-btn active px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-primary text-white shadow-lg shadow-primary/30" data-filter="All">All</button>
-                    <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-400 hover:text-white" data-filter="Professional">Professional</button>
-                    <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-400 hover:text-white" data-filter="Research">Research</button>
-                    <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-400 hover:text-white" data-filter="Personal">Personal</button>
+                <div class="flex flex-wrap gap-2 bg-slate-900/50 p-1.5 rounded-3xl md:rounded-full border border-slate-800 backdrop-blur-sm"
+                    id="project-filters">
+                    <button
+                        class="filter-btn active px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-primary text-white shadow-lg shadow-primary/30"
+                        data-filter="All">All</button>
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-400 hover:text-white"
+                        data-filter="Professional">Professional</button>
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-400 hover:text-white"
+                        data-filter="Research">Research</button>
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-400 hover:text-white"
+                        data-filter="Academic">Academic</button>
+
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-400 hover:text-white"
+                        data-filter="Personal">Personal</button>
                 </div>
             </div>
 
@@ -363,31 +422,36 @@ This passion drove me into Robotics, where I am striving deep into the field of 
     <!-- Formal Footer -->
     <footer id="contact" class="bg-slate-950 pt-24 pb-12 border-t border-slate-900">
         <div class="max-w-5xl mx-auto px-6">
-            
+
             <div class="text-center mb-16 reveal">
                 <h2 class="text-3xl font-serif italic text-slate-500 mb-4">Let's Connect</h2>
                 <h1 class="text-5xl md:text-6xl font-bold text-white mb-8">Rodrigo Bastos</h1>
                 <div class="flex flex-col items-center gap-6">
-                     <p class="text-slate-400 max-w-lg mx-auto">
-                        I am currently available for research collaborations and engineering roles in Robotics and Autonomous Systems.
+                    <p class="text-slate-400 max-w-lg mx-auto">
+                        I am currently available for research collaborations and engineering roles in Robotics and
+                        Autonomous Systems.
                     </p>
-                     <div class="flex flex-wrap gap-4 justify-center">
-                        <a href="mailto:digofbastos@gmail.com" class="px-8 py-3 bg-white text-slate-900 rounded-md font-medium hover:bg-slate-200 transition-colors">Send Email</a>
-                        <a href="#" class="px-8 py-3 border border-slate-700 text-slate-300 rounded-md font-medium hover:border-primary hover:text-primary transition-colors flex items-center gap-2">
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="mailto:digofbastos@gmail.com"
+                            class="px-8 py-3 bg-white text-slate-900 rounded-md font-medium hover:bg-slate-200 transition-colors">Send
+                            Email</a>
+                        <a href="#"
+                            class="px-8 py-3 border border-slate-700 text-slate-300 rounded-md font-medium hover:border-primary hover:text-primary transition-colors flex items-center gap-2">
                             <i data-lucide="file-text" class="w-4 h-4"></i> Download CV
                         </a>
-                     </div>
+                    </div>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-slate-900 pt-12">
-                
+
                 <!-- Contact Info -->
                 <div>
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Contact Details</h4>
                     <ul class="space-y-4 text-slate-400">
                         <li class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
+                            <div
+                                class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
                                 <i data-lucide="phone" class="w-4 h-4"></i>
                             </div>
                             <div>
@@ -396,7 +460,8 @@ This passion drove me into Robotics, where I am striving deep into the field of 
                             </div>
                         </li>
                         <li class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
+                            <div
+                                class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
                                 <i data-lucide="mail" class="w-4 h-4"></i>
                             </div>
                             <div>
@@ -405,7 +470,8 @@ This passion drove me into Robotics, where I am striving deep into the field of 
                             </div>
                         </li>
                         <li class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
+                            <div
+                                class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
                                 <i data-lucide="map-pin" class="w-4 h-4"></i>
                             </div>
                             <div>
@@ -420,15 +486,19 @@ This passion drove me into Robotics, where I am striving deep into the field of 
                 <div>
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Social Networks</h4>
                     <div class="flex gap-4">
-                        <a href="https://www.linkedin.com/in/rodrigo-freire-bastos" target="_blank" class="flex items-center gap-3 px-5 py-3 bg-slate-900 rounded-lg text-slate-400 hover:bg-primary hover:text-white transition-all group w-full md:w-auto">
+                        <a href="https://www.linkedin.com/in/rodrigo-freire-bastos" target="_blank"
+                            class="flex items-center gap-3 px-5 py-3 bg-slate-900 rounded-lg text-slate-400 hover:bg-primary hover:text-white transition-all group w-full md:w-auto">
                             <i data-lucide="linkedin" class="w-5 h-5"></i>
                             <span>LinkedIn</span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <i data-lucide="arrow-up-right"
+                                class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"></i>
                         </a>
-                         <a href="#" target="_blank" class="flex items-center gap-3 px-5 py-3 bg-slate-900 rounded-lg text-slate-400 hover:bg-primary hover:text-white transition-all group w-full md:w-auto">
+                        <a href="#" target="_blank"
+                            class="flex items-center gap-3 px-5 py-3 bg-slate-900 rounded-lg text-slate-400 hover:bg-primary hover:text-white transition-all group w-full md:w-auto">
                             <i data-lucide="github" class="w-5 h-5"></i>
                             <span>GitHub</span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <i data-lucide="arrow-up-right"
+                                class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"></i>
                         </a>
                     </div>
                 </div>
@@ -441,19 +511,23 @@ This passion drove me into Robotics, where I am striving deep into the field of 
     </footer>
 
     <!-- Project Details Modal -->
-    <div id="project-modal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div id="project-modal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity opacity-0" id="modal-backdrop" onclick="closeModal()"></div>
-        
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity opacity-0" id="modal-backdrop"
+            onclick="closeModal()"></div>
+
         <!-- Panel -->
         <div class="fixed inset-0 z-10 overflow-y-auto pointer-events-none">
             <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0 pointer-events-none">
-                <div class="pointer-events-auto relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-3xl opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" id="modal-panel">
+                <div class="pointer-events-auto relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-3xl opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    id="modal-panel">
                     <!-- Close Button -->
-                    <button onclick="closeModal()" class="absolute right-4 top-4 z-20 rounded-full bg-black/50 p-2 text-white hover:bg-primary transition-colors">
+                    <button onclick="closeModal()"
+                        class="absolute right-4 top-4 z-20 rounded-full bg-black/50 p-2 text-white hover:bg-primary transition-colors">
                         <i data-lucide="x" class="w-5 h-5"></i>
                     </button>
-    
+
                     <!-- Content injected here -->
                     <div id="modal-content"></div>
                 </div>
@@ -475,7 +549,7 @@ This passion drove me into Robotics, where I am striving deep into the field of 
                 role: 'Robotics Junior Researcher',
                 company: 'SENAI CIMATEC',
                 period: '2023 - 2024',
-                description: 'Junior robotics researcher at SENAI CIMATEC. Conducted applied research in the field of aerial robotics, sensor fusion and perception for autonomous mapping and navigation. Results of this work were published and presented at SIINTEC X.'
+                description: 'Junior robotics researcher at SENAI CIMATEC. Worked with a Quadcopter drone X500, developed embedded software (PX4 based), ROS2, and LiDAR-based SLAM algorithms for autonomous navigation. Focused on sensor fusion, 3D mapping, and control systems development.'
             },
             {
                 role: 'IEEE RAS Volunteer',
@@ -502,6 +576,12 @@ This passion drove me into Robotics, where I am striving deep into the field of 
 
         const PUBLICATIONS_DATA = [
             {
+                title: 'Performance of lidar odometry algorithms in different drone navigation scenarios',
+                context: 'SAPCT 2025',
+                year: '2025',
+                tags: ['Drones', 'LiDAR', 'Mapping', 'Localization']
+            },
+            {
                 title: 'Map reconstruction and Localization: A comparison of LiDAR Odometry Algorithms for UAV Navigation',
                 context: 'SIINTEC X',
                 year: '2024',
@@ -509,9 +589,15 @@ This passion drove me into Robotics, where I am striving deep into the field of 
             },
             {
                 title: 'IoT Leak Detection System for Onshore Oil Pipeline Based on Thermography',
-                context: 'CNPq Research',
+                context: 'Sensors - MDPI',
                 year: '2023',
                 tags: ['leak detection', 'onshore oil fields', 'Internet of Things']
+            },
+            {
+                title: 'Automatic License Plate Recognition System for Parking Management and Access',
+                context: 'SIINTEC IX',
+                year: '2023',
+                tags: ['license plate recognition', 'parking management', 'computer vision']
             }
         ];
 
@@ -529,26 +615,26 @@ This passion drove me into Robotics, where I am striving deep into the field of 
                 description: 'Simulated UAVs and soft robots in Gazebo with ROS2. Integrated PX4-Autopilot for autonomous missions and developed robotic manipulation systems.',
                 details: `
                     <p class="mb-4"><strong>Project Overview:</strong> This project involved creating a high-fidelity simulation environment to test autonomous aerial vehicles without the risks associated with physical flight testing. The goal was to validate control algorithms and mission planning logic before field deployment.</p>
-                    <p class="mb-4"><strong>Key Technologies:</strong> Utilizing the Robot Operating System 2 (ROS 2) for modular software architecture and Gazebo for physics simulation. The UAV flight stack was managed by PX4 Autopilot, communicating via MAVLink/uORB. Custom plugins were developed in C++ to simulate specific sensor noise and environmental conditions.</p>
-                    <p class="mb-4"><strong>Outcome:</strong> Successfully demonstrated autonomous waypoint navigation, obstacle avoidance using simulated LiDAR data, and precision landing. This simulation framework is now used as the standard testing pipeline for validating new control algorithms.</p>
+                    <p class="mb-4"><strong>Key Technologies:</strong> Utilizing the Robot Operating System 2 (ROS 2) for modular software architecture and Gazebo for physics simulation. The UAV flight stack was managed by PX4 Autopilot, communicating via MAVLink/uORB. Custom plugins were developed in C++ to simulate specific manipulators and sensors inside the simulation.</p>
+                    <p class="mb-4"><strong>Outcome:</strong> Successfully demonstrated autonomous waypoint navigation, 3D reconstruction using simulated LiDAR data. This simulation framework is now used as the standard testing pipeline for validating new control algorithms for Soft Manipulators.</p>
                 `,
                 techStack: ['ROS 2', 'PX4', 'Gazebo', 'C++'],
-                image: 'https://picsum.photos/id/1050/800/600?grayscale&blur=2',
+                image: 'fig/mapping.jpg',
                 size: 'wide',
                 id: 'p1'
             },
             {
                 title: 'Map reconstruction and Localization',
-                category: 'Research',
+                category: 'Professional',
                 description: 'A comparison of LiDAR Odometry Algorithms for UAV Navigation. Focused on LIO, Drone, SLAM, Mapping, and Localization accuracy in aerial environments.',
                 details: `
                     <p class="mb-4"><strong>Abstract:</strong> This research paper presents a comparative analysis of state-of-the-art LiDAR Odometry algorithms for Unmanned Aerial Vehicles (UAVs). The study evaluates the performance of LIO-SAM, FAST-LIO2, and DLIO in diverse environments ranging from urban canyons to unstructured vegetation.</p>
-                    <p class="mb-4"><strong>Methodology:</strong> A custom quadcopter equipped with an Ouster OS-1 LiDAR and a high-precision IMU was used to collect datasets. Ground truth was established using RTK-GPS. The algorithms were benchmarked on trajectory accuracy (ATE), computational load, and mapping consistency.</p>
+                    <p class="mb-4"><strong>Methodology:</strong> A custom quadcopter equipped with an Velodyne VLP-16 LiDAR and a high-precision IMU was used to collect PointCloud data. The algorithms were benchmarked on trajectory accuracy (ATE), computational load, and mapping consistency.</p>
                     <p class="mb-4"><strong>Conclusion:</strong> The results indicated that while FAST-LIO2 offered superior computational efficiency suitable for onboard processing, LIO-SAM provided marginally better mapping consistency in feature-rich environments. This work was published at SIINTEC X.</p>
                 `,
                 techStack: ['LIO', 'Drone', 'SLAM', 'Mapping', 'Localization'],
                 // Using a placeholder that suggests "Research Paper"
-                image: 'https://images.unsplash.com/photo-1516414447565-b14be0adf13e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                image: 'fig/drone.png',
                 size: 'normal',
                 id: 'r1'
             },
@@ -558,26 +644,47 @@ This passion drove me into Robotics, where I am striving deep into the field of 
                 description: 'IoT Leak Detection System for Onshore Oil Pipeline Based on Thermography. Developed an IoT solution with thermal camera computer vision.',
                 details: `
                     <p class="mb-4"><strong>Problem:</strong> Onshore oil pipelines in remote areas are susceptible to small leaks that are difficult to detect with conventional pressure sensors. These leaks can cause significant environmental damage before being noticed.</p>
-                    <p class="mb-4"><strong>Solution:</strong> Developed a low-cost, autonomous IoT node powered by solar energy. The system utilizes a FLIR Lepton thermal camera coupled with a Raspberry Pi Zero. A custom computer vision algorithm processes the thermal images to detect temperature anomalies characteristic of oil leaks.</p>
-                    <p class="mb-4"><strong>Results:</strong> The system achieves a 94% detection rate with false positives minimized by environmental filtering logic. Alerts are transmitted via LoRaWAN to a central dashboard. This project was developed under a CNPq research grant.</p>
+                    <p class="mb-4"><strong>Solution:</strong> Developed a low-cost, autonomous IoT node powered by solar energy. The system utilizes a FLIR Lepton thermal camera coupled with a Raspberry Pi  . A custom computer vision algorithm processes the thermal images to detect temperature anomalies characteristic of oil leaks.</p>
+                    <p class="mb-4"><strong>Results:</strong> The system achieves real-time detection, continuous monitoring, and data analysis for more assertive decision-making with a relatively low-cost solution, especially when considering the challenge of leak detection in remote onshore areas as the problem to be solved.</p>
                 `,
                 techStack: ['leak detection', 'onshore oil fields', 'IoT'],
                 // Using a placeholder that suggests "Industrial/IoT"
-                image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                image: 'fig/IoT-article.jpg',
                 size: 'tall',
                 id: 'r2'
             },
             {
-                title: 'Solarfly Drone',
+                title: 'Bluetooth Audio Digital Filter',
+                category: 'Academic',
+                description: 'Real-time digital audio processing on a microcontroller. Implemented ButterWorth filters in C to process audio signals received via Bluetooth.',
+                details: `
+                    <p class="mb-4"><strong>Overview:</strong> Designed and implemented a wireless audio processing system using a 16-bit microcontroller. The system receives audio streams via a Bluetooth module, applies selectable digital filters (Low-pass, High-pass) in real-time, and outputs the processed signal.</p>
+                    <p class="mb-4"><strong>Technical Challenges:</strong> Optimizing the ButterWorth filter algorithm to run within the timing constraints of the audio sampling rate (44.1kHz). Implemented circular buffers and DMA (Direct Memory Access) to minimize CPU overhead.</p>
+                    <p class="mb-4"><strong>Outcome:</strong> Achieved low-latency audio filtering with clean signal output, demonstrating proficiency in embedded DSP and real-time constraints.</p>
+                `,
+                techStack: ['C', 'Embedded', 'DSP', 'Bluetooth'],
+                image: 'https://picsum.photos/id/3/800/600?grayscale&blur=2',
+                size: 'normal',
+                id: 'acad1'
+            },
+            {
+                title: 'Optical Communication with AFSK',
+                category: 'Academic',
+                description: 'Designed a free-space optical communication system using Audio Frequency Shift Keying (AFSK) for wireless data transmission.',
+                techStack: ['Electronics', 'AFSK', 'Signal Processing'],
+                image: 'https://picsum.photos/id/60/800/600?grayscale&blur=2',
+                size: 'normal',
+                id: 'acad2'
+            },
+            {
+                title: 'Cleaning Drone for Solar Panels',
                 category: 'Personal',
                 description: 'Innovative solution to revolutionize inspection and cleaning at solar plants through the use of autonomous drones.',
                 details: `
                     <p class="mb-4"><strong>Concept:</strong> Solarfly is a prototype autonomous drone system designed to automate the inspection and cleaning of large-scale solar photovoltaic plants. Manual inspection is slow and expensive, while dust accumulation significantly reduces energy output.</p>
-                    <p class="mb-4"><strong>Implementation:</strong> The drone utilizes a downward-facing camera and onboard Jetson Nano to run real-time defect detection models (YOLOv5) on solar panels. It also features a path planning algorithm that optimizes coverage based on the plant's layout.</p>
-                    <p class="mb-4"><strong>Status:</strong> Currently in the prototyping phase. Initial flight tests have demonstrated stable autonomous navigation over panel arrays and successful identification of hotspots and cracks.</p>
                 `,
                 techStack: ['UAVs', 'Autonomous Flight', 'Inspection'],
-                image: 'https://picsum.photos/id/433/800/600?grayscale&blur=2',
+                image: 'fig/solarfly_.jpg',
                 size: 'normal',
                 id: 'pers1'
             },
@@ -587,10 +694,10 @@ This passion drove me into Robotics, where I am striving deep into the field of 
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             document.getElementById('year').textContent = new Date().getFullYear();
-            
+
             initTypewriter();
             initNavbar();
-            
+
             // Render content first so elements exist in the DOM
             renderExperience();
             renderEducation();
@@ -695,15 +802,15 @@ This passion drove me into Robotics, where I am striving deep into the field of 
         // --- RENDER FUNCTIONS ---
         function renderExperience() {
             const container = document.getElementById('experience-container');
-            if(!container) return;
+            if (!container) return;
             container.innerHTML = '<div class="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 h-full w-[2px] bg-slate-800"></div>'; // Reset
-            
+
             EXPERIENCE_DATA.forEach((exp, idx) => {
-                const isLeft = idx % 2 !== 0; 
-                
+                const isLeft = idx % 2 !== 0;
+
                 const item = document.createElement('div');
                 item.className = `flex flex-col md:flex-row gap-8 mb-12 reveal ${isLeft ? 'md:flex-row-reverse' : ''}`;
-                
+
                 item.innerHTML = `
                     <div class="flex-1 ml-8 md:ml-0">
                         <div class="bg-slate-800/40 border border-white/5 p-6 rounded-2xl hover:border-primary/30 transition-all shadow-lg ${isLeft ? 'md:text-right' : 'md:text-left'}">
@@ -722,13 +829,13 @@ This passion drove me into Robotics, where I am striving deep into the field of 
 
         function renderEducation() {
             const container = document.getElementById('education-container');
-            if(!container) return;
+            if (!container) return;
             container.innerHTML = '';
 
             EDUCATION_DATA.forEach(edu => {
-                 const item = document.createElement('div');
-                 item.className = 'bg-slate-800/40 border border-white/5 p-8 rounded-2xl hover:border-primary/30 transition-all shadow-lg reveal';
-                 item.innerHTML = `
+                const item = document.createElement('div');
+                item.className = 'bg-slate-800/40 border border-white/5 p-8 rounded-2xl hover:border-primary/30 transition-all shadow-lg reveal';
+                item.innerHTML = `
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                         <div>
                             <h4 class="text-2xl font-bold text-white">${edu.degree}</h4>
@@ -738,13 +845,13 @@ This passion drove me into Robotics, where I am striving deep into the field of 
                     </div>
                     <p class="text-slate-300 leading-relaxed">${edu.description}</p>
                  `;
-                 container.appendChild(item);
+                container.appendChild(item);
             });
         }
 
         function renderPublications() {
             const container = document.getElementById('publications-list');
-            if(!container) return;
+            if (!container) return;
             container.innerHTML = '';
 
             PUBLICATIONS_DATA.forEach(pub => {
@@ -763,7 +870,7 @@ This passion drove me into Robotics, where I am striving deep into the field of 
 
         function renderDevelopmentAreas() {
             const container = document.getElementById('areas-container');
-            if(!container) return;
+            if (!container) return;
             container.innerHTML = '';
 
             AREAS_DATA.forEach(area => {
@@ -784,17 +891,17 @@ This passion drove me into Robotics, where I am striving deep into the field of 
 
         function renderProjects(category) {
             const grid = document.getElementById('projects-grid');
-            if(!grid) return;
+            if (!grid) return;
             grid.innerHTML = ''; // Clear
-            
+
             const filtered = category === 'All' ? PROJECTS_DATA : PROJECTS_DATA.filter(p => p.category === category);
-            
+
             filtered.forEach(proj => {
                 const spanClass = proj.size === 'wide' ? 'md:col-span-2' : proj.size === 'tall' ? 'md:row-span-2' : 'col-span-1';
-                
+
                 const card = document.createElement('div');
                 card.className = `group relative bg-slate-800/40 rounded-[2rem] overflow-hidden border border-white/5 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 ${spanClass} min-h-[350px] reveal`;
-                
+
                 card.innerHTML = `
                     <div class="absolute inset-0 z-0">
                         <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-60 group-hover:opacity-40 grayscale group-hover:grayscale-0" />
@@ -817,7 +924,7 @@ This passion drove me into Robotics, where I am striving deep into the field of 
                 grid.appendChild(card);
             });
             lucide.createIcons();
-            
+
             // Re-observe new elements if needed, but usually initial observer handles persistent ones if added correctly, 
             // or we need to re-attach observer for dynamically filtered items.
             const reveals = grid.querySelectorAll('.reveal');
@@ -843,7 +950,7 @@ This passion drove me into Robotics, where I am striving deep into the field of 
                     // Add active class
                     btn.classList.remove('text-slate-400');
                     btn.classList.add('bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/30');
-                    
+
                     renderProjects(btn.getAttribute('data-filter'));
                 });
             });
@@ -889,7 +996,7 @@ This passion drove me into Robotics, where I am striving deep into the field of 
                 panel.classList.remove('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
                 panel.classList.add('opacity-100', 'translate-y-0', 'sm:scale-100');
             }, 10);
-            
+
             // Lock body scroll
             document.body.style.overflow = 'hidden';
         }
@@ -913,7 +1020,7 @@ This passion drove me into Robotics, where I am striving deep into the field of 
         // --- CHARTS ---
         function initChart() {
             const ctx = document.getElementById('skillsChart').getContext('2d');
-            
+
             // Gradient Fill
             const gradient = ctx.createLinearGradient(0, 0, 0, 400);
             gradient.addColorStop(0, 'rgba(59, 130, 246, 0.5)'); // Primary color with opacity
@@ -922,10 +1029,10 @@ This passion drove me into Robotics, where I am striving deep into the field of 
             new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['ROS/ROS2', 'C++', 'Python', 'PX4', 'Linux', 'Electronics'],
+                    labels: ['ROS/ROS2', 'C++', 'Python', 'PX4', 'Linux', 'Embedded Systems'],
                     datasets: [{
                         label: 'Skill Level',
-                        data: [90, 85, 95, 88, 92, 80],
+                        data: [90, 85, 80, 90, 92, 80],
                         backgroundColor: 'rgba(59, 130, 246, 0.2)',
                         borderColor: '#3B82F6',
                         borderWidth: 3,
@@ -977,6 +1084,7 @@ This passion drove me into Robotics, where I am striving deep into the field of 
             });
         }
     </script>
-<script type="module" src="/index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>
